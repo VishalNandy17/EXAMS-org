@@ -31,13 +31,20 @@ body {
 
 h2 {
     margin-top: 20px;
-    color: #333333;
+    color: rgb(162 83 83);
     text-align: left;
 }
 
 .form-group {
     margin-bottom: 20px;
     text-align: left;
+}
+
+.label1{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: rgb(162 83 83);
 }
 
 label {
