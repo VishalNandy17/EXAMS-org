@@ -109,6 +109,7 @@ input {
 
     .btn {
         font-size: 14px;
+        width: 320px;
     }
     input{
         width: 90%;
