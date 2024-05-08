@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Result</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Semester Result</h1>
+        <div class="student-details">
+            <div class="detail">
+                <label>NAME OF STUDENT:</label>
+                <input type="text" value="&&&& ****" disabled>
+            </div>
+            <div class="detail">
+                <label>REG NO.:</label>
+                <input type="text" value="123@###)(*U@())" disabled>
+            </div>
+            <div class="detail">
+                <label>ROLL NO.:</label>
+                <input type="text" value="12SSii!##" disabled>
+            </div>
+            <div class="detail">
+                <label>Program:</label>
+                <input type="text" value="B.Tech" disabled>
+            </div>
+            <div class="detail">
+                <label>Stream:</label>
+                <input type="text" value="COMPUTER SCIENCE AND ENGINEERING" disabled>
+            </div>
+        </div>
+        <div class="result-table">
+            <div class="table-row">
+                <div class="cell">App</div>
+                <div class="cell">Sem</div>
+                <div class="cell">Exam type</div>
+            </div>
+            <div class="table-row" id="resultRow">
+                <div class="cell view-btn">Click To View</div>
+                <div class="cell">1</div>
+                <div class="cell">Regular</div>
+            </div>
+        </div>
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewBtn = document.querySelector('.view-btn');
+            const resultRow = document.getElementById('resultRow');
+
+            viewBtn.addEventListener('click', () => {
+                const resultTable = `
+                    <div class="result-table">
+                        <div class="table-row">
+                            <div class="cell">Course Code</div>
+                            <div class="cell">Course Name</div>
+                            <div class="cell">Letter Grade</div>
+                            <div class="cell">Grade Point</div>
+                            <div class="cell">Credit</div>
+                            <div class="cell">Credit Point</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                        <div class="table-row">
+                            <div class="cell">CH(CS)101</div>
+                            <div class="cell">Engineering Chemistry</div>
+                            <div class="cell">A</div>
+                            <div class="cell">8.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">16.0</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                        <div class="table-row">
+                            <div class="cell">M(CS)101</div>
+                            <div class="cell">Engineering Mathematics</div>
+                            <div class="cell">E</div>
+                            <div class="cell">9.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">24.0</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="cell">CS101</div>
+                            <div class="cell">Programming for Problem Solving</div>
+                            <div class="cell">E</div>
+                            <div class="cell">9.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">24.0</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="cell">HU101</div>
+                            <div class="cell">Proffessional Communication</div>
+                            <div class="cell">A</div>
+                            <div class="cell">8.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">18.0</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                        <div class="table-row">
+                            <div class="cell">HU102</div>
+                            <div class="cell">Values And Ethics</div>
+                            <div class="cell">A</div>
+                            <div class="cell">8.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">18.0</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                        <div class="table-row">
+                            <div class="cell">HU103</div>
+                            <div class="cell">Indian Constitution</div>
+                            <div class="cell">A</div>
+                            <div class="cell">8.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">16.0</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="cell">ME(CS)101</div>
+                            <div class="cell">Engineering Workshop And Manufacturing Lab</div>
+                            <div class="cell">O</div>
+                            <div class="cell">10.0</div>
+                            <div class="cell">1.5</div>
+                            <div class="cell">24.0</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                        <div class="table-row">
+                            <div class="cell">HU191</div>
+                            <div class="cell">Proffessional Communication Lab</div>
+                            <div class="cell">A</div>
+                            <div class="cell">8.0</div>
+                            <div class="cell">2.0</div>
+                            <div class="cell">16.0</div>
+                        </div>
+                        <!-- Add more rows as needed -->
+                    </div>
+                `;
+
+                // Create a new div for Container-2
+                const container2Div = document.createElement('div');
+                container2Div.id = 'Container-2';
+                container2Div.innerHTML = resultTable;
+
+                // Append the result table to Container-2
+                document.body.appendChild(container2Div);
+
+                // Hide the result row
+                resultRow.style.display = 'none';
+            });
+        });
+
+
+    </script>
+</body>
+</html>

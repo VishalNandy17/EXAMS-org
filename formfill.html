@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Exam Form Fill-up</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <h1>College Exam Form Fill-up</h1>
+    <form id="exam-form"> <!-- Added id="exam-form" for targeting in JavaScript -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+  
+      <label for="university-roll">University Roll Number:</label> <!-- Added University Roll Number field -->
+      <input type="text" id="university-roll" name="university-roll" required>
+  
+      <label for="university-reg">University Registration Number:</label> <!-- Added University Registration Number field -->
+      <input type="text" id="university-reg" name="university-reg" required>
+  
+      <label for="guardian-name">Guardian's Name:</label> <!-- Added Guardian's Name field -->
+      <input type="text" id="guardian-name" name="guardian-name" required>
+  
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch" required>
+        <option value="">Select Branch</option>
+        <option value="CSE">Computer Science and Engineering</option>
+        <option value="ECE">Electronics and Communication Engineering</option>
+        <option value="ME">Mechanical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+      </select>
+        <label>Subjects:</label>
+    <div class="subjects-container">
+      <label><input type="checkbox" name="subjects[]" value="Engineering Mathematics"> Engineering Mathematics</label>
+      <label><input type="checkbox" name="subjects[]" value="Engineering Physics"> Engineering Physics</label>
+      <label><input type="checkbox" name="subjects[]" value="Basic Electrical Engineering"> Basic Electrical Engineering</label>
+      <label><input type="checkbox" name="subjects[]" value="Indian Knowledge System"> Indian Knowledge System</label>
+      <label><input type="checkbox" name="subjects[]" value="Environmental science"> Environmental science</label>
+      <label><input type="checkbox" name="subjects[]" value="Engineering Drawing"> Engineering Drawing</label>
+      <label><input type="checkbox" name="subjects[]" value="Engineering Physics Lab"> Engineering Physics Lab</label>
+      <label><input type="checkbox" name="subjects[]" value="Basic Electrical Lab"> Basic Electrical Lab</label>
+    </div>
+      </div>
+  
+      <label for="receipt">Upload Money Receipt:</label>
+      <input type="file" id="receipt" name="receipt" accept="image/*" required>
+  
+      <input type="submit" value="Submit">
+    </form>
+  
+    <button id="view-responses-btn">View Responses</button>
+  
+    <!-- Modal for displaying responses -->
+    <div id="response-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Responses</h2>
+        <ul id="response-list"></ul>
+      </div>
+    </div>
+
+  <script src="formfill.js"></script>
+  <script>
+    function saveResponsesToLocalStorage() {
+      let userId = localStorage.getItem('userId');
+      if (!userId) {
+        userId = generateUniqueId();
+        localStorage.setItem('userId', userId);
+      }
+      localStorage.setItem(`responses-${userId}`, JSON.stringify(responses));
+    }
+    
+    function generateUniqueId() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+  </script>
+
+</body>
+</html>

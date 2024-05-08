@@ -1,0 +1,166 @@
+/* General Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#response-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#response-list li {
+  margin-bottom: 20px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#response-list li ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+body {
+  font-family: 'Google Sans', Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #3c4043;
+}
+
+h1 {
+  text-align: center;
+  color: #202124;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #4285f4;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #1a73e8;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.subjects-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subjects-container label {
+  margin-right: 10px;
+}
+
+#view-responses-btn {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #4285f4;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#view-responses-btn:hover {
+  background-color: #1a73e8;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+  form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input[type="submit"],
+  #view-responses-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .subjects-container label {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 30% auto;
+  }
+}

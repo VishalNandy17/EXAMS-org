@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester - 2023-24</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="logoo.jpg" alt="Center of Excellence">
+      </div>
+      <h1>Semester - 2023-24</h1>
+      <button class="logout">Logout</button>
+    </header>
+    <div class="content">
+      <nav class="sidebar">
+        <div class="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul>
+          <li><a href="#">ENROLLMENT FOR EXAMINATION</a></li>
+          <li><a href="#">PRINT</a>
+            <ul>
+              <li><a href="admit-card.html">Print Admit Card</a></li>
+            </ul>
+          </li>
+          <li><a href="formfill.html" id="form-fillup-link">FORM FILLUP</a></li>
+          <li><a href="result.html" id="semester-result-link">Semester Result</a></li>
+        </ul>
+      </nav>
+      <main>
+        <div class="profile">
+          <h2>Profile Details</h2>
+          <div class="photo">
+            <img id="profile-photo" src="profile.jpg" alt="Profile Photo">
+            <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+            <button class="upload" id="upload-photo-btn">Upload photo</button>
+            <input type="file" id="signature-upload" accept="image/*" style="display: none;">
+            <button class="upload" id="upload-signature-btn">Upload Signature</button>
+            <p>Allowed JPG Max size of 50Kb</p>
+          </div>
+          <div class="signature">
+            <img id="signature-img" src="signature.png" alt="Signature">
+          </div>
+        </div>
+        <div class="messages">
+          <h2>Messages</h2>
+          <p>Fees Pending or Less Attendance, Please contact your Department.</p>
+          <p>Attendance: Not Eligible</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('sidebar-open');
+    });
+  </script>
+</body>
+</html>

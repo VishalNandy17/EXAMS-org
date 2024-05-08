@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admit Card</title>
+    <link rel="stylesheet" href="admit.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="admit-card-container"></div>
+
+    <script>
+        function downloadPDF(admitCardElement) {
+            const element = admitCardElement.querySelector('.page');
+            // Use your preferred method to download PDF
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const userId = localStorage.getItem('userId');
+            const photo = localStorage.getItem(`${userId}-profilePhoto`);
+            const signature = localStorage.getItem(`${userId}-signature`);
+            const responses = JSON.parse(localStorage.getItem(`responses-${userId}`)) || [];
+
+            const admitCardContainer = document.getElementById('admit-card-container');
+
+            responses.forEach((response, index) => {
+                const admitCardElement = document.createElement('div');
+                admitCardElement.classList.add('page');
+                admitCardElement.innerHTML = `
+                    <div class="admit-card">
+                        <header>
+                            <img src="logoo.jpg" alt="College Logo">
+                            <h3>Admit Card</h3>
+                            <p>B.TECH - CSE [SEMESTER - I (AY 2023-24)]</p>
+                        </header>
+                        <div class="student-info">
+                            <div class="details">
+                                <p>Exam Category: Regular</p>
+                                <p>Exam Center: JIS College of Engineering</p>
+                                <p>Roll No.: <span>${response['university-roll']}</span></p>
+                                <p>Registration No.: <span>${response['university-reg']}</span></p>
+                                <p>Examination Seat No.: <span>${response['university-roll']}</span></p>
+                                <p>Branch: <span>${response['branch']}</span></p>
+                                <p>Student's Name: <span>${response['name']}</span></p>
+                                <p>Guardian's Name: <span>${response['guardian-name']}</span></p>
+                            </div>
+                            <div class="photos-qr">
+                                <div class="photos">
+                                    <img src="${photo ? photo : 'default-photo.jpg'}" alt="Photo">
+                                    <img src="${signature ? signature : 'default-signature.png'}" alt="Signature">
+                                </div>
+                                <div id="qrcode-${index}"></div>
+                            </div>
+                        </div>
+                        <p>The Candidate is allowed to appear in the aforesaid examination at the theory and practical examination in the subjects mentioned below on showing of this document (in hard copy).</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Exam Date</th>
+                                    <th>Exam Time</th>
+                                    <th>Invigilator's Sign</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${response['subjects'].map((subject, i) => `
+                                    <tr>
+                                        <td>${i + 1}</td>
+                                        <td>${subject}</td>
+                                        <td>${subject}</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        <footer>
+                            <p>Partha Roy</p>
+                            <p>Controller of Examinations</p>
+                            <p>JIS COLLEGE OF ENGINEERING</p>
+                        </footer>
+                    </div>
+                    <div class="print-download">
+                        <button onclick="window.print()">Print</button>
+                    </div>
+                `;
+
+                admitCardContainer.appendChild(admitCardElement);
+
+                const qrCodeContainer = admitCardElement.querySelector(`#qrcode-${index}`);
+                const qrCodeData = `University Roll: ${response['university-roll']}, Registration No.: ${response['university-reg']}, Name: ${response['name']}`;
+
+                new QRCode(qrCodeContainer, {
+                    text: qrCodeData,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            });
+        });
+    </script>
+</body>
+</html>
